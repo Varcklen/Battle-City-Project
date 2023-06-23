@@ -15,7 +15,7 @@ public class Enemy : Unit
     protected override void Death()
     {
         _playerManager.SetScore(_playerManager.Score + KillPoints);
-        _playerManager.EnemiesToDefeat--;
+        _playerManager.SetEnemiesLeft(_playerManager.EnemiesToDefeat - 1);
         if (_playerManager.EnemiesToDefeat <= 0)
         {
             _playerManager.Win();

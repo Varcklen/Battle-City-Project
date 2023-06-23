@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _ressurectionDelay = 3f;
 
     public int Score { get; private set; } = 0;
-    [HideInInspector] public int EnemiesToDefeat = 0;
+    public int EnemiesToDefeat { get; private set; } = 0;
 
     public Vector2 _playerSpawnPoint;
     private int _maxLife;
@@ -23,8 +23,11 @@ public class GameManager : MonoBehaviour
         if (Instance != null && Instance != this)
             Destroy(this);
         else
-            Instance = this;
-        
+            Instance = this; 
+    }
+
+    private void Start()
+    {
         _maxLife = _playerLife;
         SetHealth(_playerLife);
         SetScore(Score);
@@ -42,6 +45,12 @@ public class GameManager : MonoBehaviour
     {
         Score = newScore;
         InfoPanel.Instance.SetScore(Score);
+    }
+
+    public void SetEnemiesLeft(int newAmount)
+    {
+        EnemiesToDefeat = newAmount;
+        InfoPanel.Instance.SetEnemiesLeft(newAmount);
     }
 
     #region Player Spawn

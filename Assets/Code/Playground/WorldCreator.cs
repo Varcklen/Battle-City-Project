@@ -70,7 +70,8 @@ public class WorldCreator : MonoBehaviour
         {
             EnemyCreating();
         }
-        GameManager.Instance.EnemiesToDefeat = _enemiesToCreate;
+        GameManager.Instance.SetEnemiesLeft(_enemiesToCreate);
+
 
         //Wall Creating
         int wallsToCreate = _spawnPoints.Count * _density / max;

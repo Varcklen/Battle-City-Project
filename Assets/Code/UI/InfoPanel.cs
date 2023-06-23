@@ -5,6 +5,7 @@ public class InfoPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _healthText;
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _enemiesText;
 
     public static InfoPanel Instance { get; private set; }
 
@@ -24,6 +25,11 @@ public class InfoPanel : MonoBehaviour
     public void SetScore(int newScore)
     {
         _scoreText.text = newScore.ToString();
+    }
+
+    public void SetEnemiesLeft(int newAmount)
+    {
+        _enemiesText.text = newAmount.ToString();
     }
 
     public void Show()
